@@ -4,7 +4,7 @@ const User = require('../model/userModel')
 
 const protect = asyncHandler(async (req, res, next) => {
   // get token
-
+   console.log('hello 2')
   let token;
 
   if (

@@ -2,6 +2,9 @@ const Review = require('../model/reviewModel');
 const asyncHandler = require('express-async-handler');
 
 const creatRewview = asyncHandler(async (req, res) => {
+
+  console.log('hello')
+  console.log(req.body)
   try {
     const review = await Review.create(req.body);
     if (review) {
@@ -18,3 +21,30 @@ const creatRewview = asyncHandler(async (req, res) => {
     });
   }
 });
+
+
+const getReviews = asyncHandler(async (req,res)=> {
+
+  console.log('hello 3')
+  try {
+
+    const reviews = await Review.find({})
+    console.log(reviews)
+    if(!reviews){
+      throw new Error('No reviews found', 404)
+    }
+    res.status(200).json({
+      status: 'success',
+      reviews,
+    })
+  }catch (err){
+    res.status(400).json({
+      status : 'error',
+      message : err
+    })
+  }
+})
+
+
+
+module.exports = {getReviews , creatRewview}

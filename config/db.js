@@ -1,8 +1,10 @@
 const mongoose = require('mongoose')
 
 const connectDB = async ()=>{
-         try{
-             const conn = await mongoose.connect(process.env.DATA_URI , {
+
+    try{
+             console.log(process.env.DATA_URI)
+             const conn = await mongoose.connect('mongodb+srv://affan:nFvKM0an3udmdRPF@cluster1.rgfnp.mongodb.net/Natours?retryWrites=true&w=majority' , {
                  useUnifiedTopology: true,
                  useNewUrlParser : true,
                  useCreateIndex : true
