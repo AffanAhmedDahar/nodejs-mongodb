@@ -4,7 +4,7 @@ const connectDB = async ()=>{
 
     try{
              console.log(process.env.DATA_URI)
-             const conn = await mongoose.connect('mongodb+srv://affan:nFvKM0an3udmdRPF@cluster1.rgfnp.mongodb.net/Natours?retryWrites=true&w=majority' , {
+             const conn = await mongoose.connect(process.env.DATA_URI , {
                  useUnifiedTopology: true,
                  useNewUrlParser : true,
                  useCreateIndex : true
