@@ -1,6 +1,6 @@
 const Review = require('../model/reviewModel');
 const asyncHandler = require('express-async-handler');
-
+const factory = require('../utils/factoryFunction')
 const creatRewview = asyncHandler(async (req, res) => {
 
   console.log('hello')
@@ -45,6 +45,6 @@ const getReviews = asyncHandler(async (req,res)=> {
   }
 })
 
+const deleteReview = factory.deleteOne(Review)
 
-
-module.exports = {getReviews , creatRewview}
+module.exports = {getReviews , creatRewview , deleteReview}

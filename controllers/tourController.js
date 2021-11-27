@@ -1,5 +1,6 @@
 const asyncHandler = require("express-async-handler");
 const Tour = require('../model/tourModel');
+const factory = require('../utils/factoryFunction')
 // const { delete } = require('../routes/tourRoutes')
 
 // const checkId = (req, res , next , val) => {
@@ -196,21 +197,7 @@ const updateTour = asyncHandler( async (req, res) => {
   }
 });
 
-const deleteTour = asyncHandler( async (req, res) => {
-  try {
-    const tour = await Tour.findById(req.params.id);
-    if (tour) {
-      tour.remove();
-    }
-    res.status(200).json({
-      status: 'succes',
-      message: 'tour removed',
-    });
-  } catch (err) {
-    res.status(404)
-      throw new Error('tour not found with that id')
-  }
-});
+const deleteTour = factory.deleteOne(Tour)
 
 const getTourStats = async (req, res) => {
   try {

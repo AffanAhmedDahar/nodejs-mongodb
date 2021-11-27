@@ -3,6 +3,7 @@ const genrateToken = require('../utils/utils');
 const asyncHandler = require('express-async-handler');
 const sendEmail = require('../utils/email');
 const crypto = require('crypto');
+const factory = require('../utils/factoryFunction')
 
 const filterObj = (obj, ...allowedFields) => {
   const newObj = {};
